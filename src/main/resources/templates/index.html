@@ -128,7 +128,8 @@
 </style>
 </head>
 <body>
-<div class="jumbotron" th:style="'background: url(/images/SpringCoreJumbotron.jpg) no-repeat center center;'">
+<div class="jumbotron" th:style="'background: url(/images/SpringCoreJumbotron.jpg) no-repeat center center;'"
+            th:replace="fragments/jumbotron :: jumbotron">
     <div class="container">
         <h1 th:text="#{index.courses.headline}">Spring </h1>
         <p class="lead" th:text="#{index.courses.tagline}" >Online </p>
@@ -363,6 +364,8 @@
         </div>
     </div>
 </div>
+
+<div th:replace="fragments/footer :: footer"></div>
 
 </body>
 </html>
