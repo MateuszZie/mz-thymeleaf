@@ -17,7 +17,7 @@ public class ProductController {
 
     @RequestMapping("/product")
     public String product(){
-        return "redirect:/index";
+        return "redirect:/";
     }
     @RequestMapping("/product/{id}")
     public String getProduct(@PathVariable Integer id, Model model){
