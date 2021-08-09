@@ -128,7 +128,7 @@
 </style>
 </head>
 <body>
-<div class="jumbotron">
+<div class="jumbotron" th:style="'background: url(/images/SpringCoreJumbotron.jpg) no-repeat center center;'">
     <div class="container">
         <h1>Spring Framework Guru</h1>
         <p class="lead">Online Courses for Spring Framework</p>
@@ -145,7 +145,7 @@
         <div class="col-md-6">
 
             <img src="https://d2vvqscadf4c1f.cloudfront.net/scgeIJ9wRGGNWvK0jAld_ThumbFREE_01.png"
-                 class="center-block"/>
+                 class="center-block" th:src="@{/images/SpringIntroThumb.png}"/>
 
         </div>
         <div class="col-md-6">
