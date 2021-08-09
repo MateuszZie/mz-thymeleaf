@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Spring Framework Guru - Course Name</title>
+    <title th:text="#{index.page.title}">Title</title>
 
     <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen"
           th:href="@{/css/bootstrap-3.3.4-dist/css/bootstrap.min.css}"/>
@@ -130,15 +130,15 @@
 <body>
 <div class="jumbotron" th:style="'background: url(/images/SpringCoreJumbotron.jpg) no-repeat center center;'">
     <div class="container">
-        <h1>Spring Framework Guru</h1>
-        <p class="lead">Online Courses for Spring Framework</p>
+        <h1 th:text="#{index.courses.headline}">Spring </h1>
+        <p class="lead" th:text="#{index.courses.tagline}">Online </p>
     </div>
 </div>
 
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1>Spring Framework Guru - Course Name</h1>
+            <h1 th:text="#{index.courses.headline}">Spring Framework Guru - Course Name</h1>
         </div>
     </div>
     <div class="row">
@@ -166,7 +166,7 @@
 
     <div class="row">
         <div class="col-md-offset-6 col-md-4">
-            <button class="btn-success">Buy Now!</button>
+            <button class="btn-success" th:text="#{product.button}">Buy Now!</button>
         </div>
     </div>
 </div>
