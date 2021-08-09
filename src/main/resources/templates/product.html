@@ -144,11 +144,28 @@
     </div>
     <div class="row">
         <div class="col-md-6">
+            <div class="row">
+                <img src="https://d2vvqscadf4c1f.cloudfront.net/scgeIJ9wRGGNWvK0jAld_ThumbFREE_01.png"
+                     class="center-block" th:src="@{/images/SpringIntroThumb.png}"/>
+            </div>
+                <div class="row course-listing-extra-info col-md-12">
+                    <div class="col-md-offset-1 col-md-9">
+                        <img align="left" alt="John Thompson"
+                             src="https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:30,height:30/https://d2vvqscadf4c1f.cloudfront.net/uZC7XjnzTMyJJeq5hShi_IMG_2800square.jpg"
+                             class="img-circle" th:src="@{'/images/' +${product.author.image}}"/>
+                        <div class="large course-author-name" th:text="${product.author.firstName} + ' '
+                        +${product.author.lastName}">
+                            John Thompson
+                        </div>
 
-            <img src="https://d2vvqscadf4c1f.cloudfront.net/scgeIJ9wRGGNWvK0jAld_ThumbFREE_01.png"
-                 class="center-block" th:src="@{/images/SpringIntroThumb.png}"/>
-
-        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="large course-price" style="color: green;" th:text="${product.price > 0 ? '$' + product.price : 'FREE'}">
+                            $15
+                        </div>
+                    </div>
+                </div>
+            </div>
         <div class="col-md-6">
             <div>
                 <h2 th:text="${product.courseSubtitle}">Course Title</h2>
@@ -166,7 +183,7 @@
     </div>
     <div class="row">
         <div class="col-md-offset-6 col-md-4">
-            <button class="btn-success" th:text="#{product.button}">Buy Now!</button>
+            <button class="btn-success"  th:text="#{product.button}">Buy Now!</button>
         </div>
     </div>
 </div>
