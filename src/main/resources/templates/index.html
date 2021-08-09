@@ -5,11 +5,11 @@
     <title th:text="#{index.page.title}">title</title>
 
     <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen"
-    th:href="@{/css/bootstrap-3.3.4-dist/css/bootstrap.min.css}"/>
+          th:href="@{/css/bootstrap-3.3.4-dist/css/bootstrap.min.css}"/>
     <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
-    th:src="@{/js/jquery-2.1.4.min.js}"></script>
+            th:src="@{/js/jquery-2.1.4.min.js}"></script>
     <link th:href="@{/css/custom.css}" rel="stylesheet" media="screen"/>
-<style th:remove="all">
+    <style th:remove="all">
            .jumbotron {
             background: url('https://d2vvqscadf4c1f.cloudfront.net/rGIBmJUAT46UuLPwXo3K_Fedora_Core_Ultimate2.jpg') no-repeat center center;
             height: 350px;
@@ -125,14 +125,15 @@
             font-weight: 200;
             line-height: 30px;
         }
-</style>
+
+    </style>
 </head>
 <body>
 <div class="jumbotron" th:style="'background: url(/images/SpringCoreJumbotron.jpg) no-repeat center center;'"
-            th:replace="fragments/jumbotron :: jumbotron">
+     th:replace="fragments/jumbotron :: jumbotron">
     <div class="container">
         <h1 th:text="#{index.courses.headline}">Spring </h1>
-        <p class="lead" th:text="#{index.courses.tagline}" >Online </p>
+        <p class="lead" th:text="#{index.courses.tagline}">Online </p>
     </div>
 </div>
 
@@ -142,17 +143,20 @@
             <h1 th:text="#{index.courses.headline}">Spring </h1>
         </div>
     </div>
-    <table>
-        <tr>
-            <th>ID </th>
-            <th>Course Name</th>
-        </tr>
-        <tr th:each="product: ${products}">
-            <td th:text="${product.id}">id</td>
-            <td th:text="${product.courseName}">name</td>
-        </tr>
-    </table>
-
+    <div class="row course-list list">
+        <div th:each="product, it: ${products}">
+            <div th:if="${it.count gt 0 and it.count lt 4}">
+                <div th:replace="fragments/productdiv :: productdiv"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row course-list list">
+        <div th:each="product, it: ${products}">
+            <div th:if="${it.count gt 3 and it.count lt 7}">
+                <div th:replace="fragments/productdiv :: productdiv"></div>
+            </div>
+        </div>
+    </div>
     <div class="row course-list list" th:remove="all">
         <div class="col-md-4">
             <div class="course-listing">
