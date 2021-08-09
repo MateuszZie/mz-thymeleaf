@@ -142,8 +142,18 @@
             <h1 th:text="#{index.courses.headline}">Spring </h1>
         </div>
     </div>
+    <table>
+        <tr>
+            <th>ID </th>
+            <th>Course Name</th>
+        </tr>
+        <tr th:each="product: ${products}">
+            <td th:text="${product.id}">id</td>
+            <td th:text="${product.courseName}">name</td>
+        </tr>
+    </table>
 
-    <div class="row course-list list">
+    <div class="row course-list list" th:remove="all">
         <div class="col-md-4">
             <div class="course-listing">
                 <div class="row">
@@ -254,7 +264,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" th:remove="all">
         <div class="col-md-4">
             <div class="course-listing">
                 <div class="row">
