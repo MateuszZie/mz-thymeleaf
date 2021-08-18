@@ -1,5 +1,6 @@
 package org.mateuszziebura.mzthymeleaf.controllers;
 
+import org.mateuszziebura.mzthymeleaf.domain.Product;
 import org.mateuszziebura.mzthymeleaf.services.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +22,8 @@ public class ProductController {
     }
     @RequestMapping("/product/{id}")
     public String getProduct(@PathVariable Integer id, Model model){
-        model.addAttribute("product", productService.getProduct(id));
+        Product product = productService.getProduct(id);
+        model.addAttribute("product", product);
         return "product";
     }
 }
