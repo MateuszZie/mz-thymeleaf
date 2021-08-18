@@ -17,8 +17,7 @@ public class CheckoutCommand {
 
     @NotBlank
     @Size(min = 2, max = 50)
-    private String addressLine1;
-    private String addressLine2;
+    private String addressLine1, addressLine2;
 
     @NotBlank
     @Size(min = 2, max = 50)
