@@ -1,32 +1,34 @@
 package org.mateuszziebura.mzthymeleaf.comands;
 
-import javax.validation.constraints.NotEmpty;
+
+import javax.validation.constraints.NotBlank;
+
 import javax.validation.constraints.Size;
 
 public class CheckoutCommand {
 
-    @NotEmpty
+    @NotBlank
     @Size(min = 2, max = 50)
     private String firstName;
 
-    @NotEmpty
+    @NotBlank
     @Size(min = 2, max = 50)
     private String lastName;
 
-    @NotEmpty
+    @NotBlank
     @Size(min = 2, max = 50)
     private String addressLine1;
     private String addressLine2;
 
-    @NotEmpty
+    @NotBlank
     @Size(min = 2, max = 50)
     private String city;
 
-    @NotEmpty
+    @NotBlank
     @Size(min = 2, max = 2)
     private String stateCode;
 
-    @NotEmpty
+    @NotBlank
     @Size(min = 5, max = 10)
     private String zipCode;
 
