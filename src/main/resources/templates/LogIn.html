@@ -14,17 +14,24 @@
 <body>
 <div class="container">
     <h2>LogIn</h2>
-    <form class="form-horizontal" th:object="${loged}" th:action="@{/success}" method="post">
+    <form class="form-horizontal" th:object="${loged}" th:action="@{/login}" method="post">
                         <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
                             <p th:text="#{loged.hasErrors}">Error Message</p>
                         </div>
-        <div th:class="${#fields.hasErrors('userName')} ? 'form-group has-error' : 'form-group'">
+        <div th:if="${param.error}" class="alert alert-danger">
+            <p>Invalid username and password.</p>
+        </div>
+
+        <div th:if="${param.logout}" class="alert alert-success">
+            <p>You've been logged out.</p>
+        </div>
+        <div th:class="${#fields.hasErrors('username')} ? 'form-group has-error' : 'form-group'">
             <label class="col-sm-2 control-label">User Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" th:field="*{userName}" th:errorclass="has-error"/>
-                <span class="help-block" th:if="${#fields.hasErrors('userName')}">
+                <input type="text" class="form-control" th:field="*{username}" th:name="username" th:errorclass="has-error"/>
+                <span class="help-block" th:if="${#fields.hasErrors('username')}">
                        <ul>
-                           <li th:each="err : ${#fields.errors('userName')}" th:text="${err}" />
+                           <li th:each="err : ${#fields.errors('username')}" th:text="${err}" />
                        </ul>
                 </span>
             </div>
@@ -32,7 +39,7 @@
         <div th:class="${#fields.hasErrors('password')} ? 'form-group has-error' : 'form-group'">
             <label class="col-sm-2 control-label">Password</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" th:field="*{password}" th:errorclass="has-error"/>
+                <input type="password" class="form-control" th:field="*{password}" th:name="password" th:errorclass="has-error"/>
                 <span class="help-block" th:if="${#fields.hasErrors('password')}">
                        <ul>
                            <li th:each="err : ${#fields.errors('password')}" th:text="${err}" />

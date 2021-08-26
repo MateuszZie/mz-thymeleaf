@@ -20,12 +20,17 @@ public class LogInController {
         model.addAttribute("loged", new Loged());
         return "LogIn";
     }
-    @PostMapping("/success")
+    @RequestMapping("logout-success")
+    public String yourLoggedOut(){
+
+        return "logout-success";
+    }
+//    @PostMapping("/login")
     public String successLog(@Valid Loged loged, BindingResult bindingResult){
 
         if(bindingResult.hasErrors()){
             return "LogIn";
         }
-        return "checkoutcomplete";
+        return "redirect:index";
     }
 }
